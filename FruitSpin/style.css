@@ -1,0 +1,177 @@
+html, body {
+	height: 100%;
+	min-height: 1px;
+
+	margin: 0;
+	padding: 0;
+
+	font-family: Calibri, sans-serif;
+}
+
+#container {
+	height: 100%;
+	background: #f9ffe5;
+}
+
+/* Game areas */
+#wrapper {
+	background: url('img/BG.png') 50% 50% no-repeat;
+	background-size: auto 100%;
+
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	padding: 20px;
+}
+
+#spinner {
+	text-align: center;
+}
+
+#spinner img {
+	display: none;
+	padding: 20px;
+}
+
+#spinner img.shown {
+	display: inline-block;
+}
+
+#ui {
+}
+
+/* Statuses */
+#statuses {
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+	height: 40px;
+}
+
+.status {
+	display: none;
+	text-shadow: #000 0 0 4px;
+}
+
+.status.shown {
+	display: block;
+}
+
+/* Animations */
+@keyframes status-animation
+{
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		font-size: 1.5em;
+	}
+	100% {
+		font-size: inherit;
+		transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes status-animation
+{
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	50% {
+		font-size: 1.5em;
+	}
+	100% {
+		font-size: inherit;
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+.status.animated {
+	-webkit-animation: status-animation 1s linear 1;
+	animation: status-animation 1s linear 1;
+}
+
+#status-choose {
+	color: #fffe11;
+}
+
+#status-spin {
+	color: #c2eeba;
+}
+
+#status-fail {
+	color: #ff4508;
+}
+
+#status-win {
+	color: #03D303;
+}
+
+/* Buttons & select boxes */
+#selector {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	display: block;
+	width: 100%;
+	padding: 10px 20px;
+	margin: 20px 0;
+	font-size: 2em;
+}
+
+#play {
+	text-align: center;
+}
+
+#play-button {
+	background: url('/img/BTN_Spin_sprite.png') -99px 0 no-repeat;
+	width: 98px;
+	height: 98px;
+
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: 0;
+	cursor: pointer;
+}
+
+#play-button:disabled {
+	cursor: default;
+	background-position: 0 0;
+}
+
+
+/* Responsive features */
+@media all and (min-width: 600px) {
+	#wrapper {
+		overflow: hidden;
+		width: 600px;
+		height: 300px;
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		margin: -150px 0 0 -300px;
+		background-size: 600px 300px;
+	}
+
+	#spinner, #ui {
+		float: left;
+		width: 50%;
+	}
+
+	#statuses {
+		margin: 20px 0;
+	}
+}
+
+@media all and (max-width: 599px) {
+	#wrapper {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		width: 300px;
+		height: 600px;
+		margin: -300px 0 0 -150px;
+	}
+}
